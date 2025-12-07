@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rubiks-cube-cli-shachar"
+version = "0.1.0"
+description = "A simple Rubik's Cube 3x3 CLI simulator."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Shachar Shtienmetz" }
+]
+dependencies = [
+  "Pillow>=9.0.0"
+]
+
+[project.scripts]
+rubikscube = "main:main"
+
+[tool.setuptools]
+py-modules = ["cube", "main"]
+
