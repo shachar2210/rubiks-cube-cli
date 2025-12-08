@@ -124,7 +124,7 @@ class Cube:
         U[2], U[5], U[8] = F[2], F[5], F[8]
         F[2], F[5], F[8] = D[2], D[5], D[8]
         D[2], D[5], D[8] = B[6], B[3], B[0]
-        B[6], B[3], B[0] = temp
+        B[0], B[3], B[6] = temp[2], temp[1], temp[0]
 
     def move_R_prime(self):
         for _ in range(3):
@@ -146,7 +146,7 @@ class Cube:
 
         temp = [U[0], U[3], U[6]]
         U[0], U[3], U[6] = B[8], B[5], B[2]
-        B[8], B[5], B[2] = D[0], D[3], D[6]
+        B[2], B[5], B[8] = D[6], D[3], D[0]
         D[0], D[3], D[6] = F[0], F[3], F[6]
         F[0], F[3], F[6] = temp
 
@@ -169,9 +169,9 @@ class Cube:
         R = self.faces["R"]
 
         temp = [U[6], U[7], U[8]]
-        U[6], U[7], U[8] = L[2], L[5], L[8]
+        U[6], U[7], U[8] = L[8], L[5], L[2]
         L[2], L[5], L[8] = D[0], D[1], D[2]
-        D[0], D[1], D[2] = R[0], R[3], R[6]
+        D[0], D[1], D[2] = R[6], R[3], R[0]
         R[0], R[3], R[6] = temp
 
     def move_F_prime(self):
@@ -194,9 +194,9 @@ class Cube:
 
         temp = [U[0], U[1], U[2]]
         U[0], U[1], U[2] = R[2], R[5], R[8]
-        R[2], R[5], R[8] = D[6], D[7], D[8]
+        R[2], R[5], R[8] = D[8], D[7], D[6]
         D[6], D[7], D[8] = L[0], L[3], L[6]
-        L[0], L[3], L[6] = temp
+        L[0], L[3], L[6] = temp[2], temp[1], temp[0]
 
     def move_B_prime(self):
         for _ in range(3):
@@ -208,7 +208,7 @@ class Cube:
 
     # whole cube y rotations
 
-    def move_y(self):
+    def move_Y(self):
         f = self.faces
         self.faces = {
             "U": f["U"][:],
@@ -219,13 +219,13 @@ class Cube:
             "L": f["F"][:],
         }
 
-    def move_y_prime(self):
+    def move_Y_prime(self):
         for _ in range(3):
-            self.move_y()
+            self.move_Y()
 
-    def move_y2(self):
-        self.move_y()
-        self.move_y()
+    def move_Y2(self):
+        self.move_Y()
+        self.move_Y()
 
     def apply_move(self, move: str):
         if move == "U":
@@ -264,12 +264,12 @@ class Cube:
             self.move_B_prime()
         elif move == "B2":
             self.move_B2()
-        elif move == "y":
-            self.move_y()
-        elif move in ("y'", "y’"):
-            self.move_y_prime()
-        elif move == "y2":
-            self.move_y2()
+        elif move == "Y":
+            self.move_Y()
+        elif move in ("Y'", "Y’"):
+            self.move_Y_prime()
+        elif move == "Y2":
+            self.move_Y2()
         elif move.strip() == "":
             return
         else:

@@ -13,7 +13,7 @@ A full-featured Python command-line Rubik's Cube 3×3 simulator written in pure 
 ### Cube simulation
 - Full 3×3 cube state representation  
 - All basic face moves: `U`, `D`, `F`, `B`, `L`, `R` (including `'` and `2`)  
-- Whole-cube rotations: `y`, `y'`, `y2`  
+- Whole-cube rotations: `Y`, `Y'`, `Y2`  
 - Random scramble generator  
 - Check if the cube is solved  
 

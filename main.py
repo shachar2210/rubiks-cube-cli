@@ -272,6 +272,7 @@ def interactive_loop(cube: Cube, algos: dict):
             print("""
         Available commands:
           MOVE SEQUENCE          Apply moves (e.g. R U R' U2)
+          Y / Y' / Y2            Rotate whole cube around vertical axis
           scramble [n]           Scramble cube (default 20)
           define name alg        Save an algorithm
           run name               Run saved algorithm
