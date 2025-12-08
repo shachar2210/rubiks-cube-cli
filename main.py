@@ -163,6 +163,7 @@ def interactive_loop(cube: Cube, algos: dict):
                     with open(filename, "r", encoding="utf-8") as f:
                         data = json.load(f)
                     cube.load_from_dict(data)
+                    move_history.clear()
                     print(f"Loaded cube state from {filename}")
                 except Exception as e:
                     print(f"Failed to load state: {e}")
